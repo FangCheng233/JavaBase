@@ -15,6 +15,8 @@ public class LinkedListTest {
         LinkedList<String> linkedList = new LinkedList<>();
         for (int i = 0; i < 1000; i++) {
             linkedList.add("我是第" + i + "个元素");
+            linkedList.addFirst("我是第" + i + "个元素");
+            linkedList.addLast("我是第" + i + "个元素");
         }
         System.out.println(linkedList);
     }
