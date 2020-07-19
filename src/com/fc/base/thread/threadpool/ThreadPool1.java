@@ -8,4 +8,7 @@ package com.fc.base.thread.threadpool;
  * @Version 1.0
  */
 public class ThreadPool1 {
+    public static void main(String[] args) {
+
+    }
 }

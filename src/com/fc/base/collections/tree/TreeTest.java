@@ -1,6 +1,8 @@
 package com.fc.base.collections.tree;
 
-import java.util.Stack;
+import com.sun.source.tree.BinaryTree;
+
+import java.util.*;
 
 /**
  * @ClassName TreeTest
@@ -35,7 +37,8 @@ public class TreeTest {
 //        preOrderTraverse2(treeNode);
 //        midOrderTraverse1(root);
 //        midOrderTraverse2(root);
-        revOrderTraverse2(root);
+//        revOrderTraverse2(root);
+        levelOrderBT(root);
     }
     /**
      *
@@ -56,7 +59,7 @@ public class TreeTest {
     /**
      *
      * @Description
-     * @Author fangcheng 中序遍历 左根右
+     * @Author fangcheng 递归算法 中序遍历 左根右
      * @param root :
      * @return void
      * @throws
@@ -68,6 +71,26 @@ public class TreeTest {
             System.out.println(root.nodeValue.toString());
             midOrderTraverse1(root.rightChild);
         }
+    }
+
+    /**
+     *
+     * @Description 后序遍历 左右根 递归算法
+     * @Author fangcheng
+     * @param root :
+     * @return void
+     * @throws
+     * @Date 2020/7/14 5:06 下午
+     */
+    private static void revOrderTraverse1(TreeNode root){
+
+        if(root.leftChild != null) {
+            revOrderTraverse1(root.leftChild);
+        }
+        if(root.rightChild != null) {
+            revOrderTraverse1(root.rightChild);
+        }
+        System.out.println("当前节点为：" + root.nodeValue);
     }
     /**
       * @Description 通过栈结构先进后出的方式遍历树 前序 根左右
@@ -108,25 +131,7 @@ public class TreeTest {
             }
         }
     }
-    /**
-     *
-     * @Description 后序遍历 左右根 递归算法
-     * @Author fangcheng
-     * @param root :
-     * @return void
-     * @throws
-     * @Date 2020/7/14 5:06 下午
-     */
-    private static void revOrderTraverse1(TreeNode root){
 
-            if(root.leftChild != null) {
-                revOrderTraverse1(root.leftChild);
-            }
-            if(root.rightChild != null) {
-                revOrderTraverse1(root.rightChild);
-            }
-            System.out.println("当前节点为：" + root.nodeValue);
-    }
     /**
      *
      * @Description 后序遍历 非递归算法 左右根 实现逻辑  根据前序算法  根左右->根右左 逆序输出
@@ -152,5 +157,29 @@ public class TreeTest {
         while (!treeNodes2.empty()){
             System.out.println(treeNodes2.pop().nodeValue);
         }
+    }
+
+
+    /**
+     * 层次遍历，需要用到队列这种数据结构
+     */
+    public static List<Object> levelOrderBT(TreeNode root) {
+        List<Object> levelResult = new ArrayList<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        if (root==null)
+            return levelResult;
+        deque.addLast(root);
+        TreeNode currentNode = root;
+        while (!deque.isEmpty()){
+            currentNode = deque.pollFirst();
+            if (currentNode.leftChild!=null)
+                deque.addLast(currentNode.leftChild);
+            if (currentNode.rightChild!=null)
+                deque.addLast(currentNode.rightChild);
+            levelResult.add(currentNode.nodeValue);
+        }
+        System.out.println(levelResult);
+        return levelResult;
+
     }
 }
