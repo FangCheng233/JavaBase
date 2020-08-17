@@ -9,38 +9,53 @@ package com.fc.base.thread;
  */
 public class ThreadTest5 {
     int a = 0;
-    boolean flag = false;
+    private volatile boolean flag;
     static ThreadTest5 threadTest5 = new ThreadTest5();
-    public static void main(String[] args){
-        for(int i = 0; i < 1000000; i++){
+    public static void main(String[] args) throws Exception{
         testfor();
-        }
     }
     public void write(){
-        flag = true;
-        a = 1;
-        System.out.println(flag);
-    }
-    public void read(){
-        if(flag){
-            a = a * a;
-            System.out.println(a);
-            flag = false;
-            System.out.println(flag);
+        for(int i = 0; i < 10000; i++){
+            flag = true;
+            System.out.println("write" + i + flag);
+            change1();
         }
     }
-    public static void testfor(){
-        new Thread(new Runnable() {
+    public void read(){
+        for (int i = 0; i < 10000; i++) {
+            System.out.println("read" + i + flag);
+            if(flag){
+                change2();
+                flag = false;
+            }
+        }
+    }
+    public static void testfor() throws Exception{
+        Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 threadTest5.write();
             }
-        }).start();
-        new Thread(new Runnable() {
+        });
+        Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 threadTest5.read();
             }
-        }).start() ;
+        });
+        thread1.start();
+        thread2.start();
+//        thread1.join();
+//        thread2.join();
+        threadTest5.print();
+    }
+    private synchronized void change1(){
+        a--;
+    }
+    private synchronized void change2(){
+        a++;
+    }
+    private void print(){
+        System.out.println("aaaaa " + a);
     }
 }

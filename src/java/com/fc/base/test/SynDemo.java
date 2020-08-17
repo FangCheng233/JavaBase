@@ -34,6 +34,5 @@ public class SynDemo {
         synchronized (SynDemo.class){
             answer();
         };
-
     }
 }

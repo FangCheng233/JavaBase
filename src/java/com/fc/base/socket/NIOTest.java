@@ -1,6 +1,5 @@
 package com.fc.base.socket;
 
-import org.junit.Test;
 
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -34,9 +33,5 @@ public class NIOTest {
             bytesRead = inChannel.read(buf);
         }
         aFile.close();
-    }
-    @Test
-    public void test1(){
-
     }
 }

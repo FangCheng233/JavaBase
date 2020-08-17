@@ -8,4 +8,5 @@ package com.fc.base.abstractclass;
  * @Version 1.0
  */
 public class Student extends Person {
+
 }

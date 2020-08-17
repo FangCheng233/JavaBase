@@ -64,18 +64,21 @@ public class VolatileDemo {
      * volatile不能保证原子型
      * @param args
      */
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws Exception{
         for (int i = 0;i < 10000; i++){
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     for (int i= 0;i < 1000;i++){
-                        count++;
+                        ++count;
                     }
                 }
             });
-            thread.start();
+//            thread.start();
         }
         System.out.println(count);
+        Class aClass = Class.forName("com.fc.base.test.Test");
+        aClass.newInstance();
+        System.out.println(aClass.toString());
     }
 }

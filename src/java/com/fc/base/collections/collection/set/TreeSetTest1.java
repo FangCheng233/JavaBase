@@ -1,5 +1,8 @@
 package com.fc.base.collections.collection.set;
 
+import java.util.HashSet;
+import java.util.TreeSet;
+
 /**
  * @ClassName TreeSet1
  * @Description TODO
@@ -9,6 +12,7 @@ package com.fc.base.collections.collection.set;
  */
 public class TreeSetTest1 {
     public static void main(String[] args) {
-
+        TreeSet<String> set = new TreeSet<>();
+        set.add("c");
     }
 }

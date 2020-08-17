@@ -15,7 +15,8 @@ public class ThreadTest2 implements Callable<Long> {
     @Override
     public Long call() throws Exception {
         Thread.sleep(2000);
-        System.out.println(Thread.currentThread().getId() + " is running");
+        Thread.currentThread().setName("96533");
+        System.out.println(Thread.currentThread().getName() + " is running");
         return Thread.currentThread().getId();
     }
 

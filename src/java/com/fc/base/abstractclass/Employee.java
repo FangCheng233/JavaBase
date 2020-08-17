@@ -9,7 +9,7 @@ import java.time.LocalDate;
  * @Date 2020/6/24 7:45 上午
  * @Version 1.0
  */
-public class Employee extends Person {
+public class Employee extends Person implements P{
     /**
      * @Description
      * @Author fangcheng
@@ -57,5 +57,13 @@ public class Employee extends Person {
      */
     public void setLocalDate(LocalDate localDate) {
         this.localDate = localDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "salary=" + salary +
+                ", localDate=" + localDate +
+                '}';
     }
 }

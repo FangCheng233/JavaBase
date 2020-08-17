@@ -5,7 +5,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,7 +19,10 @@ import java.util.List;
  * @Version 1.0
  */
 public class MyBatisTest1 {
-    @Test
+    public static void main(String[] args) throws Exception{
+        new MyBatisTest1().findUserByIdTest();
+        new MyBatisTest1().findUserByNameTest();
+    }
     public void findUserByIdTest() throws IOException {
         // mybatis配置文件
         String resource = "./log4j.properties";
@@ -47,7 +49,6 @@ public class MyBatisTest1 {
 
     }
     // 根据用户名称模糊查询用户列表
-    @Test
     public void findUserByNameTest() throws IOException {
         // mybatis配置文件
         String resource = "/Users/fangcheng/project/java/JavaBase/src/resource/mybatis/SqlMapConfig.xml";
