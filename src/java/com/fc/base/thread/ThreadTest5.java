@@ -12,7 +12,7 @@ public class ThreadTest5 {
     private volatile boolean flag;
     static ThreadTest5 threadTest5 = new ThreadTest5();
     public static void main(String[] args) throws Exception{
-        testfor();
+//        testfor();
     }
     public void write(){
         for(int i = 0; i < 10000; i++){

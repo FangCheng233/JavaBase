@@ -1,9 +1,6 @@
 package com.fc.base.thread;
 
-import com.fc.base.abstractclass.User;
 
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -14,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Version 1.0
  */
 public class ThreadTest4 {
-    private static int value = 0;
+    private static String value = "";
     static ReentrantLock lock = new ReentrantLock();
     public static void main(String[] args) throws InterruptedException{
         Thread thread1 = new Thread(new Runnable() {
@@ -36,7 +33,7 @@ public class ThreadTest4 {
         Thread thread3 = new Thread(new Runnable() {
             @Override
             public void  run() {
-                for(int i = 0; i<1000; i++){
+                for(int i = 0; i<10; i++){
                     incr();
                 }
             }
@@ -44,7 +41,7 @@ public class ThreadTest4 {
         Thread thread4 = new Thread(new Runnable() {
             @Override
             public void  run() {
-                for(int i = 0; i<10000; i++){
+                for(int i = 0; i<10; i++){
                     incr();
                 }
             }
@@ -52,7 +49,7 @@ public class ThreadTest4 {
         Thread thread5 = new Thread(new Runnable() {
             @Override
             public void  run() {
-                for(int i = 0; i<100000; i++){
+                for(int i = 0; i<10; i++){
                     incr();
                 }
             }
@@ -67,10 +64,26 @@ public class ThreadTest4 {
         thread3.join();
         thread4.join();
         thread5.join();
-        System.out.println(value);
+        System.out.println("value = " + value);
     }
     private static synchronized void incr(){
-        value++;
+        String value1 = value;
+        value1 = "1";
+        System.out.println(Thread.currentThread().getName());
+    }
+    private static synchronized void incr2(){
+        String value2 = value;
+        value2 = "1";
+        System.out.println(Thread.currentThread().getName());
+    }
+    private static synchronized void incr3(){
+        String value3 = value;
+        value3 = "1";
+        System.out.println(Thread.currentThread().getName());
+    }
+    private static synchronized void incr4(){
+        String value4 = value;
+        value4 = "1";
         System.out.println(Thread.currentThread().getName());
     }
 }

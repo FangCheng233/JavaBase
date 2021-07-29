@@ -1,9 +1,5 @@
 package com.fc.base.collections.collection.queue;
 
-import com.fc.base.abstractclass.User;
-
-import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * @ClassName QueueTest1
@@ -14,7 +10,7 @@ import java.util.Queue;
  */
 public class QueueTest1 {
     public static void main(String[] args) {
-        Queue<User> userQueue = new LinkedList<>();
+
 
     }
 }

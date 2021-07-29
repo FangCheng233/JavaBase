@@ -1,0 +1,74 @@
+Compiled from "ThreadTest2.java"
+public class com.fc.base.thread.ThreadTest2 implements java.util.concurrent.Callable<java.lang.Long> {
+  public com.fc.base.thread.ThreadTest2();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public java.lang.Long call() throws java.lang.Exception;
+    Code:
+       0: ldc2_w        #2                  // long 2000l
+       3: invokestatic  #4                  // Method java/lang/Thread.sleep:(J)V
+       6: invokestatic  #5                  // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+       9: ldc           #6                  // String 96533
+      11: invokevirtual #7                  // Method java/lang/Thread.setName:(Ljava/lang/String;)V
+      14: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      17: new           #9                  // class java/lang/StringBuilder
+      20: dup
+      21: invokespecial #10                 // Method java/lang/StringBuilder."<init>":()V
+      24: invokestatic  #5                  // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+      27: invokevirtual #11                 // Method java/lang/Thread.getName:()Ljava/lang/String;
+      30: invokevirtual #12                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      33: ldc           #13                 // String  is running
+      35: invokevirtual #12                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      38: invokevirtual #14                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      41: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      44: invokestatic  #5                  // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+      47: invokevirtual #16                 // Method java/lang/Thread.getId:()J
+      50: invokestatic  #17                 // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      53: areturn
+
+  public static void main(java.lang.String[]) throws java.util.concurrent.ExecutionException, java.lang.InterruptedException, java.lang.Exception;
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: iconst_2
+       4: if_icmpge     60
+       7: iconst_0
+       8: istore_2
+       9: iload_2
+      10: iconst_2
+      11: if_icmpge     47
+      14: iconst_0
+      15: istore_3
+      16: iload_3
+      17: iconst_2
+      18: if_icmpge     34
+      21: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      24: iconst_1
+      25: invokevirtual #18                 // Method java/io/PrintStream.println:(I)V
+      28: iinc          3, 1
+      31: goto          16
+      34: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      37: iconst_2
+      38: invokevirtual #18                 // Method java/io/PrintStream.println:(I)V
+      41: iinc          2, 1
+      44: goto          9
+      47: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      50: iconst_3
+      51: invokevirtual #18                 // Method java/io/PrintStream.println:(I)V
+      54: iinc          1, 1
+      57: goto          2
+      60: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      63: iconst_4
+      64: invokevirtual #18                 // Method java/io/PrintStream.println:(I)V
+      67: return
+
+  public java.lang.Object call() throws java.lang.Exception;
+    Code:
+       0: aload_0
+       1: invokevirtual #19                 // Method call:()Ljava/lang/Long;
+       4: areturn
+}

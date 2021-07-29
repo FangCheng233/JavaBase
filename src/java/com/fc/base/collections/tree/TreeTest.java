@@ -36,9 +36,9 @@ public class TreeTest {
 //        preOrderTraverse1(treeNode);
 //        preOrderTraverse2(treeNode);
 //        midOrderTraverse1(root);
-//        midOrderTraverse2(root);
+        midOrderTraverse2(root);
 //        revOrderTraverse2(root);
-        levelOrderBT(root);
+//        levelOrderBT(root);
     }
     /**
      *
@@ -115,6 +115,7 @@ public class TreeTest {
      * @Author fangcheng
      * @Date 2020/7/14 2:15 下午
      */
+
     private static void midOrderTraverse2(TreeNode root){
         Stack<TreeNode> treeNodes = new Stack<>();
         /** 判断root为空是否需要遍历 */
@@ -127,7 +128,6 @@ public class TreeTest {
                 temproot = treeNodes.peek();
                 root = treeNodes.pop().rightChild;
                 System.out.println("当前节点为：" + temproot.nodeValue);
-
             }
         }
     }

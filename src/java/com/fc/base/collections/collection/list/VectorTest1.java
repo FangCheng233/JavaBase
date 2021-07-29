@@ -12,10 +12,14 @@ import java.util.Vector;
  * @Version 1.0
  */
 public class VectorTest1 {
-    public static void main(String[] args) {
-        Vector<String> vector = new Vector<>();
+    public static void main(String[] args) throws Exception{
+        Vector<byte[]> vector = new Vector<>(2);
         for (int i = 0; i < 100; i++) {
-            vector.add("value" + i);
+            byte[] bytes = new byte[1024 * 1024*10];
+
+//            Thread.sleep(5000);
+            vector.add(null);
+            vector.add(null);
         }
         Iterator iterator = vector.iterator();
         while (iterator.hasNext()){
@@ -23,5 +27,7 @@ public class VectorTest1 {
         }
 
         System.out.println(Arrays.toString(vector.toArray()));
+    }
+    public static class l{
     }
 }

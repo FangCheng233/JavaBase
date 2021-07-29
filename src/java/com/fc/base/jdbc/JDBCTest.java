@@ -1,6 +1,9 @@
 package com.fc.base.jdbc;
 
+import com.mysql.cj.jdbc.MysqlPooledConnection;
+
 import java.sql.*;
+import java.util.Enumeration;
 
 /**
  * @ClassName JDBCTest
@@ -17,13 +20,14 @@ public class JDBCTest {
 
         ResultSet resultSet = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+//            Class.forName("com.mysql.cj.jdbc.Driver");
 
             connection = DriverManager.getConnection("jdbc:mysql://111.229.237.232:5186/test_database?characterEncoding=utf-8","test","MyPass@123");
-
             String sql = "select * from suoyinlianxi where 1=1";
 
             preparedStatement = connection.prepareStatement(sql);
+
+
 
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){

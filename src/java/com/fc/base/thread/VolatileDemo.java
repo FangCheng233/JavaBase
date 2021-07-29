@@ -74,11 +74,8 @@ public class VolatileDemo {
                     }
                 }
             });
-//            thread.start();
+            thread.start();
         }
         System.out.println(count);
-        Class aClass = Class.forName("com.fc.base.test.Test");
-        aClass.newInstance();
-        System.out.println(aClass.toString());
     }
 }

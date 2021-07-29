@@ -8,8 +8,9 @@ package com.fc.base.collections.tree;
  * @Version 1.0
  */
 public class TreeNode {
-    protected Object nodeValue;
+
     protected TreeNode leftChild;
+    protected Object nodeValue;
     protected TreeNode rightChild;
 
     public TreeNode() {
@@ -43,12 +44,12 @@ public class TreeNode {
         this.rightChild = rightChild;
     }
 
-    @Override
-    public String toString() {
-        return "TreeNode{" +
-                "nodeValue=" + nodeValue +
-                ", leftChild=" + leftChild +
-                ", rightChild=" + rightChild +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "TreeNode{" +
+//                "leftChild=" + leftChild +
+//                ", nodeValue=" + nodeValue +
+//                ", rightChild=" + rightChild +
+//                '}';
+//    }
 }

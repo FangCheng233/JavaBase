@@ -1,5 +1,6 @@
 package com.fc.base.collections.map;
 
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -11,9 +12,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ConcurrentHashMapTest1 {
     public static void main(String[] args) {
-        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>(1);
+        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>(16);
         ConcurrentHashMap<String, String> map1 = new ConcurrentHashMap<>(1,0.88f);
-        map.put("adas", "");
+        for (int i = 0; i < 200; i++) {
+            map.put("null"+i, "1" + i);
+            System.out.println(map.size());
+        }
+        for (Map.Entry entry: map1.entrySet()) {
 
+        }
+        System.out.println(map.get("null1"));
     }
 }

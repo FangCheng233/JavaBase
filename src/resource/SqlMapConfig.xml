@@ -3,6 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+   <typeAliases>
+
+   </typeAliases>
     <!-- 和spring整合后 environments配置将废除-->
     <environments default="development">
         <environment id="development">
@@ -19,7 +22,8 @@
     </environments>
     <!-- 加载映射文件-->
     <mappers>
-        <mapper resource="/Users/fangcheng/project/java/JavaBase/src/java/com/fc/base/jdbc/mapper/User.xml"/>
-<!--        <mapper resource="com.fc.base.jdbc.mapper.User.xml"/>-->
+<!--        <package name="com.fc.base.jdbc"/>-->
+        <mapper resource="./mapper/User.xml"></mapper>
+<!--        <mapper resource="./mapper/ServiceDiscoveryMapper.xml"></mapper>-->
     </mappers>
 </configuration>

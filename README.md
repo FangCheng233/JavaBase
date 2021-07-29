@@ -32,8 +32,17 @@ Java基础相关的demo
                 * 获取到锁或io完成。恢复运行
             * Terminated 终止运行
     * [java虚拟机概述]( https://www.bilibili.com/video/BV1rE411o7b8?p=4  )
-        * 类加载器子系统： 
-            * 
+        *  [类加载器子系统：](https://blog.csdn.net/ym15229994318ym/article/details/106451313)
+            * 类的加载：
+                加载 该阶段可对生成的字节码文件进行修改 Java探针技术
+                链接 
+                    验证 验证加载到的class文件是否合法
+                    准备
+                    解析
+                初始化
+                使用
+                卸载
+                
         * 运行时数据区：方法区 堆  本地方法栈 虚拟机栈 程序计数器 
             * 方法区 （Hotspot使用永久代实现方法区）
                 * 存放被虚拟机加载的类信息
@@ -152,11 +161,9 @@ Java基础相关的demo
         * []queue 队列
             * Deque :双向队列
             * PriorityQueue优先级队列
-        * []图形
-                        
-                        
-        * []Map: 又称关联数组 map扩容 当initialCapacity设置为0时，初始大小为1 数据插入时需要扩容
-            * [x]HashMap 1.8红黑树特性
+        * [图形]
+        * Map: 又称关联数组 map扩容 当initialCapacity设置为0时，初始大小为1 数据插入时需要扩容
+            * [HashMap] 1.8红黑树特性
                 * 存储结构为数组+链表（红黑树）。Node<K,V>[] 
                     * 数组长度 达到64后 且 单个链表长度达到8时链表拓展为红黑树
                     * MIN_TREEIFY_CAPACITY、TREEIFY_THRESHOLD
@@ -165,15 +172,14 @@ Java基础相关的demo
                         * 
                 * 定义过程：四种构造方法 初始化时指定容量
                 * 初始化HashMap时，对输入的容量大小进行或运算，大小为2次幂，
-            * []ConcurrentHashMap   
+            * [ConcurrentHashMap]   
                 * 不允许 key 或者value为null
                 * 当key
-            * HashTable
+            * [HashTable]
                 * Key不允许为null
                 * 线程安全
 
 初始化：Map接口的put方法，HashMap的实现->初始化容量->putval()方法->判断是否为空->初始化大小
-
         * []String:
         * []StringBuilder:
             * 线程不安全
@@ -228,7 +234,6 @@ Java基础相关的demo
             * 
         * 非阻塞IO
             * 
- 
     * Java锁
         * 锁的分类
             * 可重入锁 synchronized 和ReentrantLook
@@ -247,6 +252,8 @@ Java基础相关的demo
                 * 作用范围
                     * 作用于方法时，锁住的是对象的实例
                     * 作用于静态方法时，锁住的是class实例，全局锁，对所有调用该方法的线程生效
+                    * 
+               * [中断](https://cloud.tencent.com/developer/article/1622813)
             * RetreenLock 默认使用非公平锁。可通过构造器设置使用公平锁
                 * 先尝试乐观锁，获取不到转换为悲观锁
                 * 公平锁会考虑同步队列中第一个线程是否为当前线程，是则返回true

@@ -1,6 +1,5 @@
 package com.fc.base.stream;
 
-import com.fc.base.abstractclass.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +17,6 @@ public class StreamTest1 {
         List<String> list = new ArrayList<>();
         Stream<String> stream = list.stream();
         Stream<String> stream1 = Stream.of();
-        List<User> emps = new ArrayList<>();
-        for(int i = 0; i < 100; i++){
-            User user = new User();
-            user.setAge(i);
-            emps.add(user);
-        }
-        emps.stream()
-                .map(e -> e.getAge())
-                // 需要流中的元素重写hashCode和equals方法
-                .forEach(System.out::println);
 
     }
 }

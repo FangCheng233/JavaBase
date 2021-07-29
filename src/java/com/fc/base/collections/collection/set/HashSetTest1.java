@@ -11,7 +11,12 @@ import java.util.HashSet;
  */
 public class HashSetTest1 {
     public static void main(String[] args) {
-        HashSet<String> set = new HashSet<>();
-        set.add("");
+        HashSet<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(4);
+
+        System.out.println(set);
     }
 }

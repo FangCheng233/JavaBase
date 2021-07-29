@@ -1,0 +1,16 @@
+<hibernate-mapping>
+    <class name="com.fc.base.jdbc.hibernate.en.Employee">
+        <!-- 设置主键 -->
+        <id name="eid" column="eid">
+            <!-- 设置为native之后，主键会按照本来的顺序进行增长（比如之前23但是删除了，现在就从24开始） -->
+            <generator class="native"></generator>
+        </id>
+
+        <!-- 设置属性 -->
+        <property name="ename" column="ename"></property>
+        <property name="esex" column="esex"></property>
+
+        <many-to-one name="department"  cascade="all" column="did"
+                     class="com.fc.base.jdbc.hibernate.en.Department"></many-to-one>
+    </class>
+</hibernate-mapping>

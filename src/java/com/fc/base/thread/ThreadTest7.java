@@ -1,6 +1,9 @@
 package com.fc.base.thread;
 
+import org.apache.zookeeper.server.quorum.QuorumCnxManager;
+
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @ClassName ThreadTest7
@@ -17,7 +20,12 @@ public class ThreadTest7 {
     private AtomicInteger atomicInteger5 = new AtomicInteger(2);
 
     public static void main(String[] args) {
-        new ThreadTest7().incr();
+        while(true){
+            System.out.println(1);
+            break;
+        }
+        System.out.println(2);
+//        new ThreadTest7().incr();
     }
     public void incr(){
         atomicInteger1.getAndAdd(2);

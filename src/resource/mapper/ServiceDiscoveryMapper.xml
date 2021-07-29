@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.base.jdbc.mybatis.dao.ServiceDiscoveryMapper">
+    <resultMap id="BaseResultMap" type="com.fc.base.jdbc.mybatis.entit.ServiceDiscovery">
+        <id column="ID" jdbcType="INTEGER" property="ID" />
+        <result column="SERVICE_NAME" jdbcType="VARCHAR" property="serviceName" />
+        <result column="INSTANCE" jdbcType="VARCHAR" property="instance" />
+        <result column="CONFIG" jdbcType="INTEGER" property="config" />
+        <result column="API" jdbcType="INTEGER" property="api" />
+        <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+        <result column="UPDATE_TIME" jdbcType="VARCHAR" property="updateTime" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, SERVICE_NAME, INSTANCE , CONFIG , API, CREATE_TIME, UPDATE_TIME
+  </sql>
+    <insert id="insert" parameterType="com.fc.base.jdbc.mybatis.entit.ServiceDiscovery" useGeneratedKeys="true" keyProperty="ID">
+    insert into SERVICE_DISCOVERY (ID, SERVICE_NAME, INSTANCE, CONFIG, API, CREATE_TIME, UPDATE_TIME)
+    values (
+    #{ID,jdbcType=INTEGER},
+    #{serviceName,jdbcType=VARCHAR},
+    #{instance,jdbcType=VARCHAR},
+    #{config,jdbcType=VARCHAR},
+    #{api,jdbcType=INTEGER},
+    #{createTime,jdbcType=VARCHAR},
+    #{updateTime,jdbcType=VARCHAR})
+  </insert>
+</mapper>

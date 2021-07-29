@@ -1,7 +1,7 @@
 package com.fc.base.thread.threadpool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+
+import java.util.concurrent.*;
 
 /**
  * @ClassName ThreadPool1
@@ -12,14 +12,28 @@ import java.util.concurrent.Executors;
  */
 public class ThreadPool1 {
     public static void main(String[] args) {
+        // 任务队列长度为Integer.MAX_VALUE 容易oom
         ExecutorService pool1 = Executors.newFixedThreadPool(200);
+        // 任务队列长度为Integer.MAX_VALUE 容易oom
+        ExecutorService pool3 = Executors.newSingleThreadExecutor();
+        // 最大线程数为Integer.MAX_VALUE
         ExecutorService pool2 = Executors.newCachedThreadPool();
-        ExecutorService pool3 = Executors.newScheduledThreadPool(200);
+        ScheduledExecutorService pool5 = Executors.newScheduledThreadPool(200);
+
         ExecutorService pool4 = Executors.newWorkStealingPool(200);
-        ExecutorService pool5 = Executors.newSingleThreadExecutor();
-//        ExecutorService pool5 = Executors.newSingleThreadScheduledExecutor();
-//        ExecutorService pool5 = Executors.unconfigurableExecutorService();
-//        ExecutorService pool5 = Executors.privilegedCallableUsingCurrentClassLoader();
+//        pool2.submit();
+        pool1.isShutdown();
+        pool1.shutdown();
+        pool1.shutdownNow();
+        pool5.schedule(new Runnable(){
+            @Override
+            public void run(){
+
+            }
+        },3,TimeUnit.MILLISECONDS);
+        System.out.println(Integer.toBinaryString((-1)<<29));
+        // 固定线程池
+
 
     }
 }

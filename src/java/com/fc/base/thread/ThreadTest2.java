@@ -20,11 +20,12 @@ public class ThreadTest2 implements Callable<Long> {
         return Thread.currentThread().getId();
     }
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws ExecutionException, InterruptedException ,Exception{
         FutureTask<Long> task = new FutureTask<>(new ThreadTest2());
         new Thread(task).start();
         System.out.println("等待完成任务");
         Long result = task.get();
         System.out.println("任务结果:" + result);
+
     }
 }

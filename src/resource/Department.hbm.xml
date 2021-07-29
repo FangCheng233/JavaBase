@@ -1,0 +1,10 @@
+<hibernate-mapping>
+    <class name="com.fc.base.jdbc.hibernate.en.Department">
+        <id name="did" column="did">
+            <!-- 设置成increment之后，会从数据库中查找主键id最大的值，然后+1进行存储 -->
+            <generator class="increment"></generator>
+        </id>
+
+        <property name="departname" column="departname"></property>
+    </class>
+</hibernate-mapping>
