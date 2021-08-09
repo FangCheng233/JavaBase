@@ -30,7 +30,7 @@ public class ProxyTest {
 
         CglibProxy proxy2 = new CglibProxy();
 //        long time5 = System.currentTimeMillis();
-        LiuDeHua star2 = (LiuDeHua)proxy2.CreatProxyedObj(LiuDeHua.class);
+        LiuDeHua star2 = (LiuDeHua)proxy2.createProxyedObj(LiuDeHua.class);
 //        long time6 = System.currentTimeMillis();
 //        System.out.println("cglib创建时间：" + (time6 - time5));
 
@@ -45,8 +45,7 @@ public class ProxyTest {
 
 
         long time7 = System.currentTimeMillis();
-        for (int i = 1; i <= 2; i++)
-        {
+        for (int i = 1; i <= 2; i++) {
             star2.sing("ss");
 
             star2.dance("ss");

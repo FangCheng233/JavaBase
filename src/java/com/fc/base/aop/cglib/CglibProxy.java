@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 
 public class CglibProxy implements MethodInterceptor {
     // 根据一个类型产生代理类，此方法不要求一定放在MethodInterceptor中
-    public Object CreatProxyedObj(Class<?> clazz) {
+    public Object createProxyedObj(Class<?> clazz) {
         Enhancer enhancer = new Enhancer();
 
         enhancer.setSuperclass(clazz);
