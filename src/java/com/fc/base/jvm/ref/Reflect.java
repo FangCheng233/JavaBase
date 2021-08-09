@@ -1,5 +1,8 @@
 package com.fc.base.jvm.ref;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+
 /**
  * @ClassName Reflect
  * @Description TODO
@@ -9,9 +12,17 @@ package com.fc.base.jvm.ref;
  */
 public class Reflect {
     public static void main(String[] args) throws Exception {
+        // 直接调用class 对象的newInstance方法
         Class clazz = Class.forName("com.fc.base.jvm.ref.Person");
-        Person person = (Person) clazz.newInstance();
-//        person.test();
-        System.out.println(person);
+//        Person person = (Person) clazz.newInstance();
+
+        // 构造器函数有参反射
+        Constructor constructor = clazz.getDeclaredConstructor(int.class);
+        Person person1 = (Person)constructor.newInstance(2);
+
+        Method method = clazz.getDeclaredMethod("test");
+        method.setAccessible(true);
+        method.invoke(person1);
+
     }
 }
