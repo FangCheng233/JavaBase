@@ -13,8 +13,8 @@ import java.lang.reflect.Method;
 public class Reflect {
     public static void main(String[] args) throws Exception {
         // 直接调用class 对象的newInstance方法
-        Class clazz = Class.forName("com.fc.base.jvm.ref.Person");
-//        Person person = (Person) clazz.newInstance();
+        Class clazz = Class.forName("com.fc.base.jvm.ref.Person", false, Person.class.getClassLoader());
+        Person person = (Person) clazz.newInstance();
 
         // 构造器函数有参反射
         Constructor constructor = clazz.getDeclaredConstructor(int.class);
